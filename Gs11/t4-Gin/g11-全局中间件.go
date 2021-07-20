@@ -27,6 +27,8 @@ func MiddleWare() gin.HandlerFunc{
 		fmt.Println("中间件开始执行了")
 		// 设置变量到Context的key中，可以通过Get()取
 		g.Set("name","李")
+		g.Next()
+		// 中间件执行完后续的一些事情
 		status:=g.Writer.Status()
 		fmt.Println("中间件执行完毕", status)
 		t2 := time.Since(t)
